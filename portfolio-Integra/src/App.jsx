@@ -10,18 +10,18 @@ export default function App() {
   // Equipo de Trabajo / Integrantes
   const team = [
     {
-      name: 'María Paz Del Pilar Nadal',
+      name: ' Pilar Nadal',
       role: 'Full Stack & Software Developer',
-      bio: 'Estudiante de la Tecnicatura Universitaria en Programación (UTN FRT). Especializada en desarrollo web, soluciones a medida e integración de software.',
-      tags: ['React', 'Node.js', 'JavaScript', 'SQL', 'Git'],
-      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400'
+      bio: 'Tecnica universitaria en Programación (UTN FRT). Especializada en desarrollo web, soluciones a medida e integración de software.',
+      tags: ['React', 'Node.js', 'JavaScript', 'SQL', 'Git', 'Java', 'Tailwind CSS', 'UI/UX', 'TypeScript', 'Figma', 'MongoDB', 'Express.js', 'PostgreSQL', 'Jira', 'Scrum'],
+      avatar: 'public/pilar.jpg'
     },
     {
-      name: 'Compañera de Equipo',
-      role: 'Frontend & UI/UX Specialist',
-      bio: 'Programadora apasionada por el diseño de interfaces modernas, arquitectura CSS y maquetado dinámico para optimizar la experiencia de usuario.',
-      tags: ['React', 'Tailwind CSS', 'UI/UX', 'TypeScript', 'Figma'],
-      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400'
+      name: 'Priscila Ruiz',
+      role: 'Full Stack & Backend Developer',
+      bio: 'Tecnica universitaria en Programación (UTN FRT). Especializada en desarrollo backend, soluciones a medida e integración de software.',
+      tags: ['React', 'Node.js', 'JavaScript', 'SQL', 'Git', 'Java', 'Tailwind CSS', 'UI/UX', 'TypeScript', 'Figma', 'MongoDB', 'Express.js', 'PostgreSQL', 'Jira', 'Scrum'],
+      avatar: 'public/priscila.png'
     }
   ];
 
@@ -65,25 +65,28 @@ export default function App() {
       id: 1,
       title: 'Peluquería Canina Web',
       category: 'web',
-      image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800',
+      image: 'https://pelu-amorrunio.netlify.app/assets/logo-BQ3_Sm2Z.jpeg',
       description: 'Sistema web completo para reserva de turnos, gestión de clientes y catálogo de servicios para estéticas caninas.',
-      tags: ['React', 'Node.js', 'Tailwind', 'Jira']
+      tags: ['React', 'Node.js', 'Tailwind',],
+      link: 'https://pelu-amorrunio.netlify.app/'
     },
     {
       id: 2,
-      title: 'Ferretería Digital - Gestión',
+      title: 'Web Supermercado - Pedidos Online',
       category: 'apps',
-      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800',
+      image: 'https://static.vecteezy.com/system/resources/previews/046/919/458/non_2x/mix-icon-for-supermarket-vector.jpg',
       description: 'Plataforma interactiva para control de stock, gestión de inventario y facturación ágil de productos comerciales.',
-      tags: ['React', 'JavaScript', 'Database', 'Git']
+      tags: ['React', 'JavaScript', 'Database', 'Git'],
+      link: 'https://supermercadoprototipo.netlify.app'
     },
     {
       id: 3,
-      title: 'Diseño de Iluminación - Atelier',
+      title: 'Sistema de gestión de stock y ventas - Panadería',
       category: 'web',
-      image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&q=80&w=800',
-      description: 'Landing page y catálogo interactivo de diseño de interiores e iluminación arquitectónica.',
-      tags: ['React', 'Tailwind CSS', 'UI/UX']
+      image: 'public/panaderia.jpg',
+      description: 'Sistema de gestión de stock y ventas para panadería, con funcionalidades de control de inventario y facturación.',
+      tags: ['React', 'Tailwind CSS', 'UI/UX'],
+      link: 'http://dulce-trigoo.netlify.app/'
     }
   ];
 
@@ -108,14 +111,14 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             
-            <div className="flex items-center gap-2 cursor-pointer">
-              <div className="p-2 bg-gradient-to-tr from-purple-600 to-cyan-500 rounded-lg text-white font-bold">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-              </div>
+            <div className="flex items-center gap-3 cursor-pointer">
+             <img
+             src="/LogoIntegra2.jpg"
+             alt="Logo Integra Devs"
+             className="w-9 h-9 object-contain rounded-lg"
+             />
               <span className="font-extrabold text-xl tracking-wider bg-gradient-to-r from-purple-400 via-cyan-400 to-white bg-clip-text text-transparent">
-                DEV.DUO
+                INTEGRA.DEVS
               </span>
             </div>
 
@@ -216,7 +219,7 @@ export default function App() {
 
           {/* Filtros */}
           <div className="flex flex-wrap gap-2">
-            {['todos', 'web', 'apps'].map((cat) => (
+            {['todos',].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
@@ -384,7 +387,7 @@ export default function App() {
 
       {/* FOOTER */}
       <footer className="py-8 text-center text-xs text-slate-500 border-t border-slate-900">
-        <p>© {new Date().getFullYear()} DEV.DUO - Desarrollo Independiente. Todos los derechos reservados.</p>
+        <p>© {new Date().getFullYear()} INTEGRA.DEVS - Desarrollo Independiente. Todos los derechos reservados.</p>
       </footer>
 
       {/* MODAL DE PROYECTO SELECCIONADO */}
