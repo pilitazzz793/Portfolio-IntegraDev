@@ -14,14 +14,14 @@ export default function App() {
       role: 'Full Stack & Software Developer',
       bio: 'Tecnica universitaria en Programación (UTN FRT). Especializada en desarrollo web, soluciones a medida e integración de software.',
       tags: ['React', 'Node.js', 'JavaScript', 'SQL', 'Git', 'Java', 'Tailwind CSS', 'UI/UX', 'TypeScript', 'Figma', 'MongoDB', 'Express.js', 'PostgreSQL', 'Jira', 'Scrum'],
-      avatar: 'public/pilar.jpg'
+      avatar: '/imagenes/pilar.jpg'
     },
     {
       name: 'Priscila Ruiz',
       role: 'Full Stack & Backend Developer',
       bio: 'Tecnica universitaria en Programación (UTN FRT). Especializada en desarrollo backend, soluciones a medida e integración de software.',
       tags: ['React', 'Node.js', 'JavaScript', 'SQL', 'Git', 'Java', 'Tailwind CSS', 'UI/UX', 'TypeScript', 'Figma', 'MongoDB', 'Express.js', 'PostgreSQL', 'Jira', 'Scrum'],
-      avatar: 'public/priscila.png'
+      avatar: '/imagenes/priscila.png'
     }
   ];
 
