@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TechaBacground from './components/TechBackground';
+ //import TechBackground from './components/TechBackground'
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -164,7 +164,7 @@ export default function App() {
 
       {/* SECCIÓN HERO / INICIO */}
       <section id="inicio" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center relative overflow-hidden">
-        <TechaBacground/>
+        
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/20 blur-[120px] rounded-full -z-10 pointer-events-none" />
         <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-cyan-500/20 blur-[100px] rounded-full -z-10 pointer-events-none" />
 
