@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TechaBacground from './components/TechBackground';
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -83,7 +84,7 @@ export default function App() {
       id: 3,
       title: 'Sistema de gestión de stock y ventas - Panadería',
       category: 'web',
-      image: 'public/panaderia.jpg',
+      image: '/imagenes/panaderia.jpg',
       description: 'Sistema de gestión de stock y ventas para panadería, con funcionalidades de control de inventario y facturación.',
       tags: ['React', 'Tailwind CSS', 'UI/UX'],
       link: 'http://dulce-trigoo.netlify.app/'
@@ -113,7 +114,7 @@ export default function App() {
             
             <div className="flex items-center gap-3 cursor-pointer">
              <img
-             src="/LogoIntegra2.jpg"
+             src="/imagenes/LogoIntegra2.jpg"
              alt="Logo Integra Devs"
              className="w-9 h-9 object-contain rounded-lg"
              />
@@ -163,6 +164,7 @@ export default function App() {
 
       {/* SECCIÓN HERO / INICIO */}
       <section id="inicio" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center relative overflow-hidden">
+        <TechaBacground/>
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/20 blur-[120px] rounded-full -z-10 pointer-events-none" />
         <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-cyan-500/20 blur-[100px] rounded-full -z-10 pointer-events-none" />
 
@@ -273,6 +275,166 @@ export default function App() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+      {/* SECCIÓN PLANES Y SOLUCIONES */}
+      <section id="planes" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-cyan-400 mb-3 font-mono">
+            INVERSIÓN CLARA & TRANSPARENTE
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
+            Elegí la escala de tu <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">próximo proyecto</span>
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">
+            Diseñamos soluciones escalables: desde tu primera presencia digital profesional hasta plataformas de gestión completas con inteligencia artificial.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 items-stretch">
+          
+          {/* PLAN 1: BÁSICO / INICIAL */}
+          <div className="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
+            <div>
+              <div className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">Presencia Digital</div>
+              <h3 className="text-2xl font-bold text-white mb-2">Web / Landing Page</h3>
+              <p className="text-slate-400 text-xs leading-relaxed mb-6">
+                Ideal para profesionales o negocios que necesitan mostrar sus servicios, generar confianza y recibir consultas directas.
+              </p>
+
+              <div className="mb-6 pb-6 border-b border-slate-800">
+                <span className="text-xs text-slate-400">Inversión inicial</span>
+                <div className="text-3xl font-extrabold text-white mt-1">Desde $150.000 <span className="text-xs text-slate-500 font-normal">/ pago único</span></div>
+              </div>
+
+              <ul className="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Diseño 100% responsivo (móviles y PC)
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Botón directo a WhatsApp y llamado a la acción
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Integración con Google Maps y redes sociales
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  SEO básico para posicionar en buscadores
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Despliegue y configuración de dominio
+                </li>
+              </ul>
+            </div>
+
+            <a 
+              href="#contacto" 
+              className="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-center text-sm font-semibold transition-colors"
+            >
+              Pedir Presupuesto Web
+            </a>
+          </div>
+
+          {/* PLAN 2: INTERMEDIO / MÁS ELEGIDO (Con base de datos) */}
+          <div className="relative p-8 rounded-3xl bg-slate-900 border-2 border-cyan-500/80 shadow-2xl shadow-cyan-500/10 flex flex-col justify-between transform md:-translate-y-2">
+            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-cyan-500 text-slate-950 font-extrabold text-[11px] px-3 py-1 rounded-full uppercase tracking-wider">
+              Más Recomendado
+            </div>
+
+            <div>
+              <div className="text-xs font-mono uppercase tracking-wider text-cyan-400 mb-2">Gestión y Ventas</div>
+              <h3 className="text-2xl font-bold text-white mb-2">Sistema a Medida</h3>
+              <p className="text-slate-400 text-xs leading-relaxed mb-6">
+                Pensado para tiendas de ropa, panaderías o comercios que necesitan ordenar su stock, catálogo interactivo y pedidos.
+              </p>
+
+              <div className="mb-6 pb-6 border-b border-slate-800">
+                <span className="text-xs text-slate-400">Inversión inicial</span>
+                <div className="text-3xl font-extrabold text-cyan-400 mt-1">Desde $350.000 <span className="text-xs text-slate-500 font-normal">/ según alcance</span></div>
+              </div>
+
+              <ul className="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
+                <li className="flex items-center gap-2.5 font-medium text-white">
+                  <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Base de Datos Relacional / NoSQL en la nube
+                </li>
+                <li className="flex items-center gap-2.5 font-medium text-white">
+                  <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Panel de Administración privado (ABM de stock)
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Catálogo con filtros por categoría, talles y precios
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Carrito de compras con pedido armado vía WhatsApp
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Control de usuarios, roles y permisos de acceso
+                </li>
+              </ul>
+            </div>
+
+            <a 
+              href="#contacto" 
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 hover:opacity-90 text-center text-sm font-bold text-white transition-opacity shadow-lg shadow-cyan-500/20"
+            >
+              Consultar por Sistema
+            </a>
+          </div>
+
+          {/* PLAN 3: PREMIUM / AGENTE IA & AUTOMATIZACIÓN */}
+          <div className="p-8 rounded-3xl bg-slate-900/60 border border-purple-500/40 hover:border-purple-500 transition-all flex flex-col justify-between">
+            <div>
+              <div className="text-xs font-mono uppercase tracking-wider text-purple-400 mb-2">High-Tech & Automatización</div>
+              <h3 className="text-2xl font-bold text-white mb-2">Full Tech + Agente IA</h3>
+              <p className="text-slate-400 text-xs leading-relaxed mb-6">
+                Para negocios que quieren dar un salto exponencial automatizando ventas, atención y cobros las 24 hs sin intervención humana.
+              </p>
+
+              <div className="mb-6 pb-6 border-b border-slate-800">
+                <span className="text-xs text-slate-400">Inversión inicial</span>
+                <div className="text-3xl font-extrabold text-purple-400 mt-1">A Medida <span className="text-xs text-slate-500 font-normal">/ Proyecto Pro</span></div>
+              </div>
+
+              <ul className="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
+                <li className="flex items-center gap-2.5 font-medium text-purple-200">
+                  <svg className="w-4 h-4 text-purple-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  Agente IA (Bot autónomo) entrenado con tu catálogo
+                </li>
+                <li className="flex items-center gap-2.5 font-medium text-purple-200">
+                  <svg className="w-4 h-4 text-purple-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Pasarela de pagos integrada (Mercado Pago / Tarjetas)
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-purple-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Métricas de ventas, reportes y facturación automática
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-purple-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Conexión multi-plataforma (Web + WhatsApp Business API)
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <svg className="w-4 h-4 text-purple-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Soporte prioritario y mantenimiento evolutivo
+                </li>
+              </ul>
+            </div>
+
+            <a 
+              href="#contacto" 
+              className="w-full py-3 rounded-xl bg-purple-600/20 border border-purple-500/50 hover:bg-purple-600/40 text-center text-sm font-semibold text-purple-300 transition-colors"
+            >
+              Diseñar Proyecto con IA
+            </a>
+          </div>
+
         </div>
       </section>
 
