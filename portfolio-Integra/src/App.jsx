@@ -1,7 +1,97 @@
-import React, { useState } from 'react';
-import NetworkBackground from './components/NetworkBackground';
- //import TechBackground from './components/TechBackground'
+import React, { useState, useEffect, useRef } from 'react';
+
  
+
+function NetworkBackground() {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+
+    let animationFrame;
+    let particles = [];
+    let width = 0;
+    let height = 0;
+
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      const amount = Math.min(Math.floor(width / 15), 65);
+
+      particles = Array.from({ length: amount }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        radius: Math.random() * 1.8 + 1
+      }));
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach((particle, i) => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+
+        if (particle.x < 0 || particle.x > width) particle.vx *= -1;
+        if (particle.y < 0 || particle.y > height) particle.vy *= -1;
+
+        // Dibujar conexiones entre puntos cercanos
+        particles.slice(i + 1).forEach(other => {
+          const dx = particle.x - other.x;
+          const dy = particle.y - other.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 140) {
+            ctx.beginPath();
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(other.x, other.y);
+            ctx.strokeStyle = `rgba(103, 232, 249, ${
+              0.16 * (1 - distance / 140)
+            })`;
+            ctx.lineWidth = 0.7;
+            ctx.stroke();
+          }
+        });
+
+        // Dibujar partículas
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(167, 139, 250, 0.75)';
+        ctx.fill();
+      });
+
+      animationFrame = requestAnimationFrame(draw);
+    };
+
+    resize();
+    draw();
+
+    window.addEventListener('resize', resize);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener('resize', resize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="network-background"
+      aria-hidden="true"
+    />
+  );
+}
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,6 +99,29 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [formData, setFormData] = useState({ name: '', email: '', message: '', service: 'web' });
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+
+  useEffect(() => {
+  const elements = document.querySelectorAll('[data-reveal]');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12
+    }
+  );
+
+  elements.forEach((element) => observer.observe(element));
+
+  return () => observer.disconnect();
+}, []);
 
   // Equipo de Trabajo / Integrantes
   const team = [
@@ -194,7 +307,7 @@ export default function App() {
       </section>
 
       {/* SECCIÓN SERVICIOS */}
-      <section id="servicios" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
+      <section id="servicios" data-reveal className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">¿Qué podemos hacer por vos?</h2>
           <p className="text-slate-400 max-w-xl mx-auto">Ofrecemos un servicio integral desde la maquetación inicial hasta la publicación en la nube.</p>
@@ -214,7 +327,7 @@ export default function App() {
       </section>
 
       {/* SECCIÓN PROYECTOS / PORTFOLIO */}
-      <section id="proyectos" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
+      <section id="proyectos" data-reveal className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <h2 className="text-3xl font-bold mb-2">Nuestros Trabajos</h2>
@@ -280,7 +393,7 @@ export default function App() {
         </div>
       </section>
       {/* SECCIÓN PLANES Y SOLUCIONES */}
-      <section id="planes" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
+      <section id="planes" data-reveal className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-cyan-400 mb-3 font-mono">
             INVERSIÓN CLARA & TRANSPARENTE

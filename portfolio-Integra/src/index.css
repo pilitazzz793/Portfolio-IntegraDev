@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Fondo animado del Hero */
+#inicio {
+  isolation: isolate;
+}
+
+.network-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Mantener el contenido del Hero delante del canvas */
+#inicio > :not(.network-background) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animaciones de aparición */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Aparición escalonada de las tarjetas */
+#servicios [data-reveal]:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+#servicios [data-reveal]:nth-child(3) {
+  transition-delay: 0.24s;
+}
+
+/* Accesibilidad: respetar la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
