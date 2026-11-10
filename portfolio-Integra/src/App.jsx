@@ -352,46 +352,84 @@ export default function App() {
           </div>
         </div>
 
-        {/* Grilla de Proyectos */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-purple-500/50 transition-all flex flex-col">
-              <div className="relative overflow-hidden aspect-video">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
+{/* Grilla de Proyectos */}
+<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  {filteredProjects.map((project) => (
+    <div
+      key={project.id}
+      className="group rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-purple-500/50 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 flex flex-col"
+    >
+      <div className="relative overflow-hidden aspect-video">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      </div>
 
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">{project.title}</h3>
-                  <p className="text-slate-400 text-sm mb-4 leading-relaxed line-clamp-3">{project.description}</p>
-                </div>
+      <div className="p-6 flex-1 flex flex-col justify-between">
+        <div>
+          <h3 className="text-xl font-bold mb-2 group-hover:text-cyan-400 transition-colors">
+            {project.title}
+          </h3>
 
-                <div>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag, i) => (
-                      <span key={i} className="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <button 
-                    onClick={() => setSelectedProject(project)}
-                    className="w-full py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm font-semibold transition-colors flex items-center justify-center gap-2"
-                  >
-                    Ver Detalles 
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+          <p className="text-slate-400 text-sm mb-4 leading-relaxed line-clamp-3">
+            {project.description}
+          </p>
         </div>
-      </section>
+
+        <div>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.tags.map((tag, i) => (
+              <span
+                key={i}
+                className="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 font-mono"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-3">
+            {/* Botón Ver Detalles */}
+            <button
+              onClick={() => setSelectedProject(project)}
+              className="w-full py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm font-semibold transition-colors flex items-center justify-center gap-2"
+            >
+              Ver Detalles
+            </button>
+
+            {/* Botón Visitar Página */}
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 flex items-center justify-center gap-2"
+            >
+              Visitar página
+
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+</section>
+
       {/* SECCIÓN PLANES Y SOLUCIONES */}
       <section id="planes" data-reveal className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-900">
         <div className="text-center mb-16">
