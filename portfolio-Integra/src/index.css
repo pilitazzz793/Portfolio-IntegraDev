@@ -1,26 +1,55 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-/* Fondo animado del Hero */
-#inicio {
-  isolation: isolate;
+/* Configuración general */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #020617;
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Fondo animado global */
+.app-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Canvas de partículas */
 .network-background {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
   pointer-events: none;
 }
 
-/* Mantener el contenido del Hero delante del canvas */
-#inicio > :not(.network-background) {
+/* Contenido por encima del fondo */
+.app-content {
   position: relative;
   z-index: 1;
+  min-height: 100vh;
+}
+
+/* Hero */
+#inicio {
+  isolation: isolate;
 }
 
 /* Animaciones de aparición */
@@ -37,7 +66,7 @@
   transform: translateY(0);
 }
 
-/* Aparición escalonada de las tarjetas */
+/* Aparición escalonada de tarjetas de servicios */
 #servicios [data-reveal]:nth-child(2) {
   transition-delay: 0.12s;
 }
@@ -46,8 +75,72 @@
   transition-delay: 0.24s;
 }
 
-/* Accesibilidad: respetar la preferencia de movimiento reducido */
+/* Evitar que imágenes y elementos se desborden */
+img,
+svg {
+  max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+/* Mejor adaptación de las tarjetas */
+#servicios,
+#proyectos,
+#planes,
+#equipo,
+#contacto {
+  scroll-margin-top: 80px;
+  min-width: 0;
+}
+
+/* Evitar desbordamientos en textos largos */
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: break-word;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 70px;
+  }
+
+  #inicio {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+
+  #servicios,
+  #proyectos,
+  #planes,
+  #equipo,
+  #contacto {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  [data-reveal] {
+    transform: translateY(18px);
+  }
+
+  .network-background {
+    opacity: 0.65;
+  }
+}
+
+/* Accesibilidad: respetar movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   [data-reveal] {
     opacity: 1;
     transform: none;

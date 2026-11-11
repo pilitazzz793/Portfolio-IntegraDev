@@ -222,6 +222,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-slate-900">
       
+      <div className="app-background">
+        <NetworkBackground />
+      </div>
+      <div className="app-content">
       {/* BARRA DE NAVEGACIÓN */}
       <nav className="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -279,7 +283,6 @@ export default function App() {
 
       {/* SECCIÓN HERO / INICIO */}
       <section id="inicio" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center relative overflow-hidden">
-        <NetworkBackground />
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600/20 blur-[120px] rounded-full -z-10 pointer-events-none" />
         <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-cyan-500/20 blur-[100px] rounded-full -z-10 pointer-events-none" />
 
@@ -745,6 +748,7 @@ export default function App() {
         </div>
       )}
 
+    </div>
     </div>
   );
 }
