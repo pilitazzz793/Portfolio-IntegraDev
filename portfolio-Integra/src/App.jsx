@@ -640,65 +640,100 @@ export default function App() {
               <p className="text-xs text-slate-300">Te responderemos a la brevedad.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Nombre</label>
-                  <input 
-                    type="text" 
-                    required 
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    placeholder="Tu nombre o empresa" 
-                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-cyan-500 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Email</label>
-                  <input 
-                    type="email" 
-                    required 
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    placeholder="correo@ejemplo.com" 
-                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-cyan-500 transition-colors"
-                  />
-                </div>
-              </div>
+            
+<form onSubmit={handleSubmit} className="space-y-6">
+  <div className="grid sm:grid-cols-2 gap-6">
+    <div>
+      <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">
+        Nombre
+      </label>
+      <input
+        type="text"
+        name="name"
+        required
+        value={formData.name}
+        onChange={(e) =>
+          setFormData({ ...formData, name: e.target.value })
+        }
+        placeholder="Tu nombre o empresa"
+        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-cyan-500 transition-colors"
+      />
+    </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Servicio de interés</label>
-                <select 
-                  value={formData.service}
-                  onChange={(e) => setFormData({...formData, service: e.target.value})}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-cyan-500 transition-colors"
-                >
-                  <option value="web">Página Web / Landing Page</option>
-                  <option value="apps">Sistema / Aplicación Web</option>
-                  <option value="api">Integración o Consultoría</option>
-                </select>
-              </div>
+    <div>
+      <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">
+        Email
+      </label>
+      <input
+        type="email"
+        name="email"
+        required
+        value={formData.email}
+        onChange={(e) =>
+          setFormData({ ...formData, email: e.target.value })
+        }
+        placeholder="correo@ejemplo.com"
+        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-cyan-500 transition-colors"
+      />
+    </div>
+  </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Mensaje</label>
-                <textarea 
-                  rows={4} 
-                  required
-                  value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  placeholder="Contanos sobre las necesidades de tu proyecto..." 
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-cyan-500 transition-colors"
-                />
-              </div>
+  <div>
+    <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">
+      Servicio de interés
+    </label>
+    <select
+      name="service"
+      value={formData.service}
+      onChange={(e) =>
+        setFormData({ ...formData, service: e.target.value })
+      }
+      className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-cyan-500 transition-colors"
+    >
+      <option value="web">Página Web / Landing Page</option>
+      <option value="apps">Sistema / Aplicación Web</option>
+      <option value="api">Integración o Consultoría</option>
+    </select>
+  </div>
 
-              <button 
-                type="submit" 
-                className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
-              >
-                Enviar Consulta 
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-              </button>
-            </form>
+  <div>
+    <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">
+      Mensaje
+    </label>
+    <textarea
+      name="message"
+      rows={4}
+      required
+      value={formData.message}
+      onChange={(e) =>
+        setFormData({ ...formData, message: e.target.value })
+      }
+      placeholder="Contanos sobre las necesidades de tu proyecto..."
+      className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-cyan-500 transition-colors"
+    />
+  </div>
+
+  <button
+    type="submit"
+    className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+  >
+    Enviar Consulta
+    <svg
+      className="w-4 h-4"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M14 5l7 7m0 0l-7 7m7-7H3"
+      />
+    </svg>
+  </button>
+</form>
+
           )}
         </div>
       </section>
