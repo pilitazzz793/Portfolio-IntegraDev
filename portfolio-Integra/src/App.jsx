@@ -1,4 +1,4 @@
-  //import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
  
 
@@ -98,7 +98,6 @@ export default function App() {
   const [activeCategory, setActiveCategory] = useState('todos');
   const [selectedProject, setSelectedProject] = useState(null);
   const [formData, setFormData] = useState({ name: '', email: '', message: '', service: 'web' });
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
    
   
@@ -211,13 +210,24 @@ export default function App() {
     ? projects 
     : projects.filter(p => p.category === activeCategory);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', message: '', service: 'web' });
-    }, 4000);
+  const handleWhatsApp = (phone) => {
+    const serviceNames = {
+      web: 'Página Web / Landing Page',
+      apps: 'Sistema / Aplicación Web',
+      api: 'Integración o Consultoría'
+    };
+
+    const message = `Hola! Me comunico desde la página de Integra Devs.
+
+Nombre: ${formData.name}
+Email: ${formData.email}
+Servicio de interés: ${serviceNames[formData.service] || formData.service}
+
+Consulta:
+${formData.message}`;
+
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -634,15 +644,7 @@ export default function App() {
             <p className="text-slate-400">Escribinos y coordinemos una reunión para presupuestar tu proyecto.</p>
           </div>
 
-          {isSubmitted ? (
-            <div className="p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-center text-emerald-400 flex flex-col items-center gap-3">
-              <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-              <p className="font-semibold text-lg">¡Mensaje enviado con éxito!</p>
-              <p className="text-xs text-slate-300">Te responderemos a la brevedad.</p>
-            </div>
-          ) : (
-            
-<form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
   <div className="grid sm:grid-cols-2 gap-6">
     <div>
       <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">
@@ -715,28 +717,24 @@ export default function App() {
     />
   </div>
 
-  <button
-    type="submit"
-    className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
-  >
-    Enviar Consulta
-    <svg
-      className="w-4 h-4"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
+  <div className="grid sm:grid-cols-2 gap-4">
+    <button
+      type="button"
+      onClick={() => handleWhatsApp('5493816310480')}
+      className="w-full py-4 rounded-xl bg-green-600 hover:bg-green-500 font-bold transition-colors flex items-center justify-center gap-2"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M14 5l7 7m0 0l-7 7m7-7H3"
-      />
-    </svg>
-  </button>
-</form>
+      WhatsApp Pilar
+    </button>
 
-          )}
+    <button
+      type="button"
+      onClick={() => handleWhatsApp('5493813589653')}
+      className="w-full py-4 rounded-xl bg-green-600 hover:bg-green-500 font-bold transition-colors flex items-center justify-center gap-2"
+    >
+      WhatsApp Priscila
+    </button>
+  </div>
+</form>
         </div>
       </section>
 
@@ -788,4 +786,4 @@ export default function App() {
     </div>
     </div>
   );
-} 
+}
