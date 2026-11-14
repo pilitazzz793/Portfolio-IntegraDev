@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+  //import React, { useState, useEffect, useRef } from 'react';
 
  
 
@@ -100,7 +100,8 @@ export default function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '', service: 'web' });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-
+   
+  
   useEffect(() => {
   const elements = document.querySelectorAll('[data-reveal]');
 
@@ -659,6 +660,7 @@ export default function App() {
         className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 focus:outline-none focus:border-cyan-500 transition-colors"
       />
     </div>
+    
 
     <div>
       <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">
@@ -786,4 +788,4 @@ export default function App() {
     </div>
     </div>
   );
-}
+} 
