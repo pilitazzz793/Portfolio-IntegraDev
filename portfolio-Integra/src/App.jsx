@@ -521,7 +521,7 @@ ${formData.message}`;
 
               <div className="mb-6 pb-6 border-b border-slate-800">
                 <span className="text-xs text-slate-400">Inversión inicial</span>
-                <div className="text-3xl font-extrabold text-cyan-400 mt-1">Desde $350.000 <span className="text-xs text-slate-500 font-normal">/ según alcance</span></div>
+                <div className="text-3xl font-extrabold text-cyan-400 mt-1">Desde $200.000 <span className="text-xs text-slate-500 font-normal">/ según alcance</span></div>
               </div>
 
               <ul className="space-y-3 text-xs sm:text-sm text-slate-300 mb-8">
@@ -577,7 +577,7 @@ ${formData.message}`;
                 </li>
                 <li className="flex items-center gap-2.5 font-medium text-purple-200">
                   <svg className="w-4 h-4 text-purple-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  Pasarela de pagos integrada (Mercado Pago / Tarjetas)
+                  Pasarela de pagos integrada ( Efectivo / Transferencias)
                 </li>
                 <li className="flex items-center gap-2.5">
                   <svg className="w-4 h-4 text-purple-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
