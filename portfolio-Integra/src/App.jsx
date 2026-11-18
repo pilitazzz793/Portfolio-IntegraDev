@@ -721,7 +721,7 @@ ${formData.message}`;
     <button
       type="button"
       onClick={() => handleWhatsApp('5493816310480')}
-      className="w-full py-4 rounded-xl bg-green-600 hover:bg-green-500 font-bold transition-colors flex items-center justify-center gap-2"
+      className="w-full py-4 px-5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/40 hover:-translate-y-1 hover:brightness-110 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
     >
       WhatsApp Pilar
     </button>
@@ -729,7 +729,7 @@ ${formData.message}`;
     <button
       type="button"
       onClick={() => handleWhatsApp('5493813589653')}
-      className="w-full py-4 rounded-xl bg-green-600 hover:bg-green-500 font-bold transition-colors flex items-center justify-center gap-2"
+      className="w-full py-4 px-5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold shadow-lg shadow-violet-500/20 hover:shadow-violet-400/40 hover:-translate-y-1 hover:brightness-110 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
     >
       WhatsApp Priscila
     </button>
